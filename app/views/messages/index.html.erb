@@ -1,2 +1,4 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<% @messages.each do |message| %>
+	<h3><%= message.title %></h3>
+	<p><%= link_to "Join Convo", message_path(message.id) %></p>
+<% end %>
