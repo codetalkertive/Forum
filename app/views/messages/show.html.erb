@@ -1,0 +1,7 @@
+<h3><%= @message.title %></h3>
+<p><%= time_ago_in_words(@message.created_at)%> ago</p>
+<p><%= @message.description %></p>
+
+<%= link_to "Edit", edit_message_path(@message.id) %>
+<%= link_to "Delete", message_path(@message.id), method: :delete %>
+<%= link_to "Back", messages_path %>
