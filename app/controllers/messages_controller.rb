@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   def index
   	@messages = Message.all.order("created_at DESC")
   end
