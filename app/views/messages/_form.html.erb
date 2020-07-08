@@ -2,6 +2,20 @@
 	<div class="col-md-8">
 		<%= form_for @message do |f| %>
 
+		<% if @message.errors.any? %>
+
+		<div id="errors">
+		  <h2><%= pluralize(@message.errors.count, "error") %> stopped this post from submitting</h2>
+
+			<ul>
+				<% @message.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>					  
+		</div>
+
+		<% end %>
+
 		<div class="form-group">
 			<%= f.label :title %>
 	        <%= f.text_field :title, class: 'form-control' %>

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+    before_action :authenticate_user!
 	before_action :find_message, only: [:create, :edit, :update, :destroy]
 	before_action :find_comment, only: [:edit, :update, :destroy]
 
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
 	 @comment.destroy
 	 redirect_to message_path(@message)
-	 
+
 	end
 
 	

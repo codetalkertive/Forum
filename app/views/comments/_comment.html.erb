@@ -1,13 +1,17 @@
 <p><%= comment.content %></p>
 <p>By: <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</p>
 
+<% if user_signed_in? %>
+
 <% if comment.user_id == current_user.id %>
 
 <table>
 	<tbody>
 		<td><%= link_to "Edit", edit_message_comment_path(comment.message, comment) %></td>
-<td><%= button_to "Delete", message_comment_path(comment.message, comment), method: :delete %></td>
+        <td><%= button_to "Delete", message_comment_path(comment.message, comment), method: :delete %></td>
 	</tbody>
 </table>
+
+<% end %>
 
 <% end %>
